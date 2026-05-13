@@ -1,0 +1,103 @@
+.navbar {
+  display: none;
+}
+
+@media (max-width: 996px) {
+
+  .navbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 60px;
+
+    padding: 0 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 1000;
+  }
+
+  .hamburger,
+  .mobile-cart {
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+  }
+
+  .hamburger {
+
+    position: absolute;
+
+    left: 15px;
+  }
+
+  .mobile-cart {
+
+    position: absolute;
+
+    right: 30px;
+  }
+
+  .mobile-title {
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    text-align: center;
+  }
+
+  .mobile-menu {
+
+    position: absolute;
+
+    top: 60px;
+    left: 0;
+
+    width: 200px;
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    z-index: 1001;
+  }
+
+  .mobile-menu p {
+
+    cursor: pointer;
+  }
+
+  /* Hide desktop UI on mobile */
+
+  .title,
+  .Logout-button,
+  .Cart-page-button {
+
+    display: none;
+  }
+
+  /* Prevent navbar overlap */
+
+  .search-container,
+  .products-container {
+
+    margin-top: 70px;
+  }
+}
