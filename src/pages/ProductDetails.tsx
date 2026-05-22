@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { HiMiniPower, HiShoppingCart } from "react-icons/hi2";
 import { getProduct } from "../services/api";
 import CartButton from "../components/CartButton";
-import { HiMiniPower, HiShoppingCart } from "react-icons/hi2";
 import CartModal from "../components/CartModal";
-import type { Product } from "../types/product";
 import BackButton from "../components/BackButton";
+import useLoader from "../components/Hooks/useLoader";
+import type { Product } from "../types/product";
+import ProductSkeleton from "../components/ProductSkeleton";
+import Loader from "../components/loader";
+import Navbar from "../components/Navbar";
+
 
 export default function ProductDetails() {
 
@@ -16,6 +21,9 @@ export default function ProductDetails() {
 
   const [showCart, setShowCart] =
     useState(false);
+
+  const { loading, showSkeleton } =
+    useLoader();
 
   const navigate = useNavigate();
 
@@ -30,20 +38,34 @@ export default function ProductDetails() {
       });
 
   }, [id]);
+  if (loading) {
+
+    return <Loader />;
+  
+  }
+
+  if (showSkeleton) {
+
+    return <ProductSkeleton />;
+
+  }
 
   if (!product) {
 
     return (
 
       <div>
-        
 
         <h1
           className="title"
-          onClick={() => navigate("/dashboard")}
+          onClick={() =>
+            navigate("/dashboard")
+          }
         >
           E-Commerce Site
         </h1>
+
+        <Navbar />
 
         <h2 className="title">
           Loading...
@@ -62,7 +84,9 @@ export default function ProductDetails() {
         className="Logout-button"
         onClick={() => {
 
-          localStorage.removeItem("token");
+          localStorage.removeItem(
+            "token"
+          );
 
           navigate("/login");
 
@@ -75,17 +99,22 @@ export default function ProductDetails() {
 
       <button
         className="Cart-page-button"
-        onClick={() => setShowCart(true)}
+        onClick={() =>
+          setShowCart(true)
+        }
       >
         <HiShoppingCart />
       </button>
 
       <h1
         className="title"
-        onClick={() => navigate("/dashboard")}
+        onClick={() =>
+          navigate("/dashboard")
+        }
       >
         E-Commerce Site
       </h1>
+      <Navbar />
 
       {showCart && (
 

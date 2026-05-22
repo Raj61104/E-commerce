@@ -716,3 +716,102 @@
 .back-button {
   left: 20px;
 }
+
+.skeleton-image,
+.skeleton-title,
+.skeleton-price,
+.skeleton-description,
+.skeleton-button {
+
+  background: #ddd;
+
+  border-radius: 8px;
+
+  animation: pulse 1s infinite;
+}
+
+.skeleton-image {
+
+  width: 300px;
+
+  height: 300px;
+}
+
+.skeleton-title {
+
+  width: 300px;
+
+  height: 30px;
+
+  margin-bottom: 20px;
+}
+
+.skeleton-price {
+
+  width: 120px;
+
+  height: 25px;
+
+  margin-bottom: 20px;
+}
+
+.skeleton-description {
+
+  width: 400px;
+
+  height: 20px;
+
+  margin-bottom: 10px;
+}
+
+.short {
+
+  width: 250px;
+}
+
+.skeleton-button {
+
+  width: 150px;
+
+  height: 45px;
+
+  margin-top: 20px;
+}
+
+@keyframes pulse {
+
+  0% {
+
+    opacity: 0.6;
+  }
+
+  50% {
+
+    opacity: 1;
+  }
+
+  100% {
+
+    opacity: 0.6;
+  }
+}
+
+.loader-container {
+
+  height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+@media (max-width: 996px) {
+
+  .back-button {
+
+    display: none;
+  }
+
+}
