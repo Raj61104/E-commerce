@@ -8,7 +8,7 @@ import BackButton from "../components/BackButton";
 import useLoader from "../components/Hooks/useLoader";
 import type { Product } from "../types/product";
 import ProductSkeleton from "../components/ProductSkeleton";
-import Loader from "../components/loader";
+import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
 
 
